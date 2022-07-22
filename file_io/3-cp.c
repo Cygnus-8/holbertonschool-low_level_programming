@@ -80,7 +80,7 @@ int main(int ac, char **av)
 		i = read(fd_from, buffer, 1024);
 		fd_to = open(av[2], O_WRONLY | O_APPEND);
 
-	} while (i < 0);
+	} while (i > 0);
 
 	free(buffer);
 	custom_close(fd_to);

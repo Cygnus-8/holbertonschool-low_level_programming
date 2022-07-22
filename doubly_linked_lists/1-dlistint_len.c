@@ -2,7 +2,7 @@
 
 /**
  * dlistint_len - cfr description
- * @h: head of the list 
+ * @h: head of the list
  * Return: The number of element in the list
  */
 

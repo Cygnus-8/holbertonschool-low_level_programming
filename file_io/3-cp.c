@@ -72,7 +72,7 @@ int main(int ac, char **av)
 		k = write(fd_to, buffer, i);
 		if (fd_to < 0 || k < 0)
 		{
-			dprintf(2, "Error: Can't write to %s\n", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			free(buffer);
 			exit(99);
 		}

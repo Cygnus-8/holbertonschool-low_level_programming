@@ -17,7 +17,7 @@ void custom_close(int fd)
 	a = close(fd);
 	if (a < 0)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -34,7 +34,7 @@ char *custom_buffer(char *file)
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 		exit(99);
 	}
 	return (buffer);
@@ -53,7 +53,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	buffer = custom_buffer(av[2]);
@@ -65,7 +65,7 @@ int main(int ac, char **av)
 	do {
 		if (fd_from < 0 || i < 0)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", av[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 			free(buffer);
 			exit(98);
 		}

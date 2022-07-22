@@ -65,14 +65,14 @@ int main(int ac, char **av)
 	do {
 		if (fd_from < 0 || i < 0)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", fd_from);
+			dprintf(2, "Error: Can't read from file %s\n", av[1]);
 			free(buffer);
 			exit(98);
 		}
 		k = write(fd_to, buffer, i);
 		if (fd_to < 0 || k < 0)
 		{
-			dprintf(2, "Error: Can't write to %s\n", fd_to);
+			dprintf(2, "Error: Can't write to %s\n", av[2]);
 			free(buffer);
 			exit(99);
 		}
